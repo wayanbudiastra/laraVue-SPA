@@ -6,13 +6,13 @@
           <div class="sb-sidenav-menu-heading">Core</div>
          
             <div class="sb-nav-link-icon">
-               <router-link to="/" class="nav-link" exact>
+               <router-link to="/home" class="nav-link" exact>
               <i class="fas fa-tachometer-alt"></i> Dashboard
               </router-link>
             </div>
 
             <div class="sb-nav-link-icon">
-               <router-link to="/catagory" class="nav-link" exact>
+               <router-link to="/home/catagory" class="nav-link" exact>
               <i class="fas fa-book-open"></i> Catagory
               </router-link>
             </div>

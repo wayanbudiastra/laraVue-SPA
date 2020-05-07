@@ -47,7 +47,7 @@ class AuthController extends Controller
         ]);
         if(!Auth::attempt(['email' => $request->email,'password'=> $request->password])){
             return response()->json([
-                'messeage' => 'Unauthorize',
+                'messeage' => 'invalid user /password',
                 'status_code' => 401
             ],401);
         }
@@ -80,5 +80,13 @@ class AuthController extends Controller
                 'status_code' => 500
             ],500);
         }
+    }
+
+    public function logout(Request $request){
+        $request->user()->token()->revoke();
+        return response()->json([
+                'messeage' => 'Logout successfully',
+                'status_code' => 200
+            ],200);
     }
 }

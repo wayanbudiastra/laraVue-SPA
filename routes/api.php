@@ -18,6 +18,30 @@ Route::group(['prefix' => 'auth'],function(){
     Route::post('register','AuthController@register');
     Route::post('login','AuthController@login');
 
+    Route::group(['middleware'=>'auth:api'],function(){
+        Route::post('logout','AuthController@logout');
+    });
+
+    Route::group(['middleware'=>'user'],function(){
+       Route::group(['middleware'=>'auth:api'],function(){
+            Route::post('edit-catagory',function(){
+                return response()->json([
+                    'message' => 'Admin access',
+                    'status_code' => 200,
+                ],200);
+             })->middleware('scope:do_anything');
+
+              Route::post('create-catagory',function(){
+                return response()->json([
+                    'message' => 'Everyone access',
+                    'status_code' => 200,
+                ],200);
+             })->middleware('scope:do_anything,can_create');
+        });
+    });
+
+
+
    
 });
 

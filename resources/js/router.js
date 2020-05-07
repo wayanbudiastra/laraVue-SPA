@@ -1,20 +1,46 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Welcome from './views/Welcome.vue';
+
+import Home from './views/Home.vue';
 
 Vue.use(Router);
 
 const routes = [
     {
-        path : '/',
-        name : 'welcome',
-        component : Welcome
+        path: '/home',
+        name: 'home',
+        component: Home,
+        children:[
+            {
+                path: '',
+                name: 'dashboard',
+                component: () => import('./views/Dashboard.vue')
+
+            },
+            {
+                path: 'catagory',
+                name: 'catagory',
+                component: () => import('./views/Catagory.vue')
+            }
+            , 
+        ]
 
     },
+   
     {
-        path : '/catagory',
-        name : 'catagory',
-        component: () => import('./views/Catagory.vue')
+        path: '/register',
+        name: 'register',
+        component: () => import('./views/authentication/Register.vue')
+    },
+    {
+        path: '/login',
+        name: 'login',
+        component: () => import('./views/authentication/Login.vue')
+    },
+    {
+        path: '/reset-password',
+        name: 'reset-password',
+        component: () => import('./views/authentication/ResetPassword.vue')
     }
 ];
 
