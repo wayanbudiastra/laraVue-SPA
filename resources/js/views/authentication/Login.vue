@@ -77,7 +77,7 @@ export default {
                     break;
                     case 401:
                          this.flashMessage.error({
-                            message:error.response.data.message,
+                            message:'Invalid user name / password',
                             time: 5000
                         });
                     break;

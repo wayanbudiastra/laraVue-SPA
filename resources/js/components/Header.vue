@@ -39,9 +39,25 @@
           <a class="dropdown-item" href="#">Settings</a>
           <a class="dropdown-item" href="#">Activity Log</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="login.html">Logout</a>
+          <button class="dropdown-item" v-on:click="logout">Logout</button>
         </div>
       </li>
     </ul>
   </nav>
 </template>
+
+<script>
+import * as auth from '../services/auth_service';
+export default {
+  methods:{
+    logout: async function(){
+      auth.logout();
+      this.$router.push('/login');
+       this.flashMessage.success({
+                    message:'logout successfully',
+                    time: 5000
+                 });
+    }
+  }
+}
+</script>

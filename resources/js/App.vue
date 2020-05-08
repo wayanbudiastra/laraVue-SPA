@@ -15,11 +15,11 @@
 
 
 export default {
-    components:{
-        // Header,
-        // Sidebar,
-        // Footer
-    }
+    // components:{
+    //     Header,
+    //     Sidebar,
+    //     Footer
+    // }
     
 }
 </script>

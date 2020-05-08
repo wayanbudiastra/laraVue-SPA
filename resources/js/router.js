@@ -4,16 +4,16 @@ import Router from 'vue-router';
 import Home from './views/Home.vue';
 import * as auth from './services/auth_service';
 
+
 Vue.use(Router);
 
 const routes = [
     {
         path: '/home',
-        name: 'home',
         component: Home,
         children:[
             {
-                path: '',
+                path: '/',
                 name: 'dashboard',
                 component: () => import('./views/Dashboard.vue')
 
@@ -25,14 +25,14 @@ const routes = [
             }
             , 
         ],
-        // beforeEnter(to, from, next) {
+         beforeEnter(to, from, next) {
             
-        //     if(auth.isLoggedIin()){
-        //         next('/home');
-        //     }else{
-        //         next('/login');
-        //     }
-        // }
+            if(!auth.isLoggedIn()){
+                next('/login');
+            }else{
+                next();
+            }
+       }
 
     },
    
@@ -44,7 +44,15 @@ const routes = [
     {
         path: '/login',
         name: 'login',
-        component: () => import('./views/authentication/Login.vue')
+        component: () => import('./views/authentication/Login.vue'),
+        beforeEnter(to, from, next) {
+            
+            if(!auth.isLoggedIn()){
+                next();
+            }else{
+                next('/home');
+            }
+       }
     },
     {
         path: '/reset-password',
@@ -55,6 +63,7 @@ const routes = [
 
 
 const router = new Router({
+    mode : 'history',
     routes: routes,
     linkActiveClass: 'active'
 });

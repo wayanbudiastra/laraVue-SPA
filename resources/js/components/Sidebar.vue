@@ -3,7 +3,10 @@
     <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
       <div class="sb-sidenav-menu">
         <div class="nav">
-          <div class="sb-sidenav-menu-heading">Core</div>
+         
+          <div class="sb-sidenav-menu-heading">
+             <h4>{{$store.state.profile.name}}</h4>
+          Core</div>
          
             <div class="sb-nav-link-icon">
                <router-link to="/home" class="nav-link" exact>

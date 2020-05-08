@@ -115,7 +115,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 16:
                 this.flashMessage.error({
-                  message: _context.t0.response.data.message,
+                  message: 'Invalid user name / password',
                   time: 5000
                 });
                 return _context.abrupt("break", 22);
