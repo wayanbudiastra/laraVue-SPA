@@ -17,5 +17,11 @@ function setToken(data) {
     localStorage.setItem('laravel-vue-spa', JSON.stringify(data));
 }
 
+export function isLoggedIin() {
+    const token = localStorage.getItem('laravel-vue-spa');
+    return token != null;
+    
+}
+
 
 

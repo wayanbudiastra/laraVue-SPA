@@ -66,8 +66,8 @@ export default {
                 // console.log(this.user);
                  this.$router.push('/home');
                  this.flashMessage.success({
-                message:'login successfully',
-                time: 5000
+                    message:'login successfully',
+                    time: 5000
                  });
             }catch(error){
                 console.log(''+error);
