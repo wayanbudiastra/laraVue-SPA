@@ -5,7 +5,7 @@
         <div class="nav">
          
           <div class="sb-sidenav-menu-heading">
-             <h4>{{$store.state.profile.name}}</h4>
+             <!-- <h4>{{$store.state.profile.name}}</h4> -->
           Core</div>
          
             <div class="sb-nav-link-icon">
@@ -16,7 +16,7 @@
 
             <div class="sb-nav-link-icon">
                <router-link to="/home/catagory" class="nav-link" exact>
-              <i class="fas fa-book-open"></i> Catagory
+              <i class="fas fa-book-open"></i>Katagory
               </router-link>
             </div>
           
@@ -32,8 +32,8 @@
           >
             <div class="sb-nav-link-icon">
               <i class="fas fa-columns"></i>
-            </div>Layouts
-            <div class="sb-sidenav-collapse-arrow">
+             </div>Master Data
+              <div class="sb-sidenav-collapse-arrow">
               <i class="fas fa-angle-down"></i>
             </div>
           </a>
@@ -44,8 +44,13 @@
             data-parent="#sidenavAccordion"
           >
             <nav class="sb-sidenav-menu-nested nav">
-              <a class="nav-link" href="layout-static.html">Static Navigation</a>
-              <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+               <router-link to="/home/catagory" class="nav-link" exact>
+                Produk
+               </router-link>
+               <router-link to="/home/catagory" class="nav-link" exact>
+                Harga
+               </router-link>
+              
             </nav>
           </div>
           <a
@@ -58,7 +63,7 @@
           >
             <div class="sb-nav-link-icon">
               <i class="fas fa-book-open"></i>
-            </div>Pages
+            </div>Transaksi
             <div class="sb-sidenav-collapse-arrow">
               <i class="fas fa-angle-down"></i>
             </div>
@@ -78,7 +83,7 @@
                 aria-expanded="false"
                 aria-controls="pagesCollapseAuth"
               >
-                Authentication
+                Inventory
                 <div class="sb-sidenav-collapse-arrow">
                   <i class="fas fa-angle-down"></i>
                 </div>
@@ -90,9 +95,9 @@
                 data-parent="#sidenavAccordionPages"
               >
                 <nav class="sb-sidenav-menu-nested nav">
-                  <a class="nav-link" href="login.html">Login</a>
-                  <a class="nav-link" href="register.html">Register</a>
-                  <a class="nav-link" href="password.html">Forgot Password</a>
+                  <a class="nav-link" href="login.html">Penerimaan</a>
+                  <a class="nav-link" href="register.html">Kartu Stok</a>
+                  <a class="nav-link" href="password.html">Ajusment</a>
                 </nav>
               </div>
               <a
@@ -103,7 +108,7 @@
                 aria-expanded="false"
                 aria-controls="pagesCollapseError"
               >
-                Error
+                Order Produk
                 <div class="sb-sidenav-collapse-arrow">
                   <i class="fas fa-angle-down"></i>
                 </div>
@@ -115,9 +120,9 @@
                 data-parent="#sidenavAccordionPages"
               >
                 <nav class="sb-sidenav-menu-nested nav">
-                  <a class="nav-link" href="401.html">401 Page</a>
-                  <a class="nav-link" href="404.html">404 Page</a>
-                  <a class="nav-link" href="500.html">500 Page</a>
+                  <a class="nav-link" href="401.html">POS</a>
+                  <a class="nav-link" href="404.html">Oder Online</a>
+                  <a class="nav-link" href="500.html">Order Manual</a>
                 </nav>
               </div>
             </nav>
@@ -126,12 +131,12 @@
           <a class="nav-link" href="charts.html">
             <div class="sb-nav-link-icon">
               <i class="fas fa-chart-area"></i>
-            </div>Charts
+            </div>Karyawan
           </a>
           <a class="nav-link" href="tables.html">
             <div class="sb-nav-link-icon">
               <i class="fas fa-table"></i>
-            </div>Tables
+            </div>Saldo
           </a>
         </div>
       </div>

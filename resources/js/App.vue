@@ -1,25 +1,25 @@
 <template>
     <main>
-     
-
-        
         <router-view></router-view>
         <FlashMessage position="right bottom"></FlashMessage>
     </main>
 </template>
 
 <script>
-// import Header from './components/Header.vue';
-// import Sidebar from './components/Sidebar.vue';
-// import Footer from './components/Footer.vue';
-
-
+//TODO
+import * as auth from './services/auth_service'; 
 export default {
-    // components:{
-    //     Header,
-    //     Sidebar,
-    //     Footer
-    // }
+   name:'App',
+   beforeCreate:async function() {
+       try {
+           if(auth.isLoggedIn()){
+               const response = await auth.getProfile();
+               this.$store.dispatch('authenticate',response.data.user);
+           }
+       } catch (error) {
+           auth.logout();
+       }
+   },
     
 }
 </script>

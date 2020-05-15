@@ -1,6 +1,7 @@
 <template>
   <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-    <a class="navbar-brand" href="index.html">Koperasi</a>
+    <a class="navbar-brand" href="/"> {{$store.state.profile.name}}</a>
+   
     <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
     </button>
@@ -52,7 +53,7 @@ export default {
   methods:{
     logout: async function(){
       auth.logout();
-      this.$router.push('/login');
+       this.$router.push('/login');
        this.flashMessage.success({
                     message:'logout successfully',
                     time: 5000

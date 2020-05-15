@@ -2,11 +2,11 @@ import {http, httpFile} from './http_service';
 import jwt from 'jsonwebtoken';
 import store from '../store';
 
-export function register(data){
-    return http().post('/auth/register',data);
+export function register(user){
+    return http().post('/auth/register',user);
 }
-export function login(data) {
-    return http().post('/auth/login', data)
+export function login(user) {
+    return http().post('/auth/login', user)
     .then(response => {
         if(response.status === 200){
             setToken(response.data);
@@ -15,10 +15,10 @@ export function login(data) {
     });
 }
 
-function setToken(data) {
-    const token = jwt.sign({ data : data }, 'laravelvuespajksadlkkjfhsuehbajw2020');
+function setToken(user) {
+    const token = jwt.sign({ user : user }, 'laravelvuespajksadlkkjfhsuehbajw2020');
     localStorage.setItem('laravel-vue-spa', token);
-    store.dispatch('authenticate', data.data);
+    store.dispatch('authenticate', user.user);
 
 }
 
@@ -39,7 +39,11 @@ export function getAccesToken(){
         return null;
     }
     const tokenData = jwt.decode(token);
-    return tokenData.data.access_token;
+    return tokenData.user.access_token;
+}
+
+export function getProfile() {
+    return http().get('/auth/profile');
 }
 
 
